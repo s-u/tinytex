@@ -15,6 +15,8 @@ jobs:
       draft-tag: ${{ steps.draft.outputs.draft-tag }}
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: Create new draft release
         id: draft
         run: |
