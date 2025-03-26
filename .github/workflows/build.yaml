@@ -1,20 +1,11 @@
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '5 3 * * *'
 
 name: Build TinyTeX Bundles
 
-env:
-  # for gh usage with external repo
-  GH_TOKEN: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
-  # required for GH to run on another repo (-R option)
-  # https://cli.github.com/manual/gh_help_environment
-  GH_REPO: rstudio/tinytex-releases
-
 jobs:
   new-release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     name: Create new daily draft release
     outputs:
       tag: ${{ steps.draft.outputs.tag }}
